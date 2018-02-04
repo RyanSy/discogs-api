@@ -1,0 +1,21 @@
+<div class="Polaris-Layout__Section">
+  <div class="Polaris-Card">
+    <ul class="Polaris-ResourceList">
+      {{#listings}}
+      <li class="Polaris-ResourceList__ItemWrapper">
+        <div class="Polaris-ResourceList__Item Polaris-ResourceList__Item--link"><a aria-describedby="ResourceListItem1" class="Polaris-ResourceList__Link" href="#" data-polaris-unstyled="true"></a>
+          <div class="Polaris-ResourceList__Container" id="ResourceListItem1">
+            <div class="Polaris-ResourceList__Content">
+              <div class="Polaris-ResourceList__Attributes">
+                <p class="Polaris-ResourceList__AttributeOne">{{this.release.description}}</p>
+                <div class="Polaris-ResourceList__AttributeTwo">{{this.condition}}</div>
+                <div class="Polaris-ResourceList__AttributeThree"><span class="Polaris-TextStyle--variationSubdued">{{this.price.value}}</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </li>
+      {{/listings}}
+    </ul>
+  </div>
+</div>
