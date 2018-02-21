@@ -13,11 +13,12 @@ router.get('/', function(req, res, next) {
 // Next 3 routes (/authorize, /callback, /main) are part of the Discogs auth flow
 router.get('/authorize', function(req, res){
 	var oAuth = new Discogs().oauth();
-  var callbackUrl = 'http://localhost:3000/callback' || 'https://discogs-api.herokuapp.com/callback'
+  var callbackUrl_dev = 'http://localhost:3000/callback';
+  var callbackUrl_prod = 'https://discogs-api.herokuapp.com/callback';
 	oAuth.getRequestToken(
 		consumer_key,
 		consumer_secret,
-		callbackUrl,
+		callbackUrl_dev,
 		function(err, requestData){
       storage.init().then(function() {
         storage.setItem('requestData', requestData)
