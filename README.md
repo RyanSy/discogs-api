@@ -1,2 +1,2 @@
 # discogs-api
-* set CONSUMER_KEY & CONSUMER_SECRET in .env
+* set Discogs CONSUMER_KEY & CONSUMER_SECRET in .env for access to API
