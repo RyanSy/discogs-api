@@ -18,7 +18,7 @@ router.get('/authorize', function(req, res){
 	oAuth.getRequestToken(
 		consumer_key,
 		consumer_secret,
-		callbackUrl_dev,
+		callbackUrl_prod,
 		function(err, requestData){
       storage.init().then(function() {
         storage.setItem('requestData', requestData)
