@@ -26,8 +26,8 @@ router.get('/authorize', function(req, res){
         .then(function(value) {
           console.log('\n/authorize\nrequestData:\n', value);
         });
+        res.redirect(requestData.authorizeUrl);
       });
-			res.redirect(requestData.authorizeUrl);
 		}
 	);
 });
