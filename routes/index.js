@@ -41,7 +41,7 @@ router.get('/authorize', function(req, res){
 	oAuth.getRequestToken(
 		consumer_key,
 		consumer_secret,
-		callbackUrl_dev, // change this to callbackUrl_prod when in production
+		callbackUrl_dev,
 		function(err, requestData){
       storage.init().then(function() {
         storage.setItem('requestData', requestData)
@@ -105,8 +105,6 @@ router.get('/main', function(req, res, next) {
           }
         });
 
-        /* initial request in order to get marketplace listings */
-        request(getInventory, showInventory);
         /* request options */
         var getInventory = {
           url: 'https://api.discogs.com/users/' + identity.username + '/inventory?per_page=100',
@@ -148,12 +146,14 @@ router.get('/main', function(req, res, next) {
               request(getAllInventory, saveInventory);
             }
 
-
             // console.log('\n/main\nlistings:\n', listings);
             res.render('main', {listings: listings, identity: identity });
           }
         } /* end showInventory */
 
+        /* initial request in order to get marketplace listings */
+        request(getInventory, showInventory);
+        
     	}); /* end dis.getIdentity */
     }); /*  end storage.getItem */
   }); /* end storage.init */
