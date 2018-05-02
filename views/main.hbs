@@ -1,7 +1,8 @@
 <div class="Polaris-Layout__Section">
-  <h4>Logged in as: {{identity.username}} </h4>
+  <h4>Logged in as: {{username}} </h4>
+  <a href="/logout">Log Out</a>
+  {{#listings}}
   <div class="Polaris-Card">
-    {{#listings}}
     <ul class="Polaris-ResourceList">
       <li class="Polaris-ResourceList__ItemWrapper">
         <div class="Polaris-ResourceList__Item Polaris-ResourceList__Item--link"><a aria-describedby="ResourceListItem1" class="Polaris-ResourceList__Link" href="#" data-polaris-unstyled="true"></a>
@@ -17,6 +18,6 @@
         </div>
       </li>
     </ul>
-    {{/listings}}
   </div>
+  {{/listings}}
 </div>
